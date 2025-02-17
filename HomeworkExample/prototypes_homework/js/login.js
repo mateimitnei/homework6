@@ -16,7 +16,9 @@ class LoginForm {
 	init() {
 		if (sessionStorage.getItem('loggedIn') === 'true') {
 			this.showGallery();
-		} else {
+		}
+		else {
+			this.form.style.display = 'block';
 			this.submitButton.addEventListener('click', (event) => this.validateForm(event));
 		}
 	}
@@ -32,9 +34,8 @@ class LoginForm {
 		if (result === true) {
 			sessionStorage.setItem('loggedIn', 'true');
 			this.showGallery();
-		} else {
-			this.showAlert(result);
 		}
+		else this.showAlert(result);
 	}
 
 	showAlert(message) {

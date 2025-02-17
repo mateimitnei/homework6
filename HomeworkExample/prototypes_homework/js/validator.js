@@ -7,18 +7,18 @@ class Validator {
 
     check(inputEmail, inputPass) {
         if (!inputEmail || !inputPass) {
-            return 'Form is filled out incorrectly';
+            return 'Fill in both fields!';
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(inputEmail)) {
-            return 'Invalid email format';
+            return 'Invalid email format!';
         }
 
         if (this.email === inputEmail && this.password === inputPass) {
             return true;
         } else {
-            return 'Incorrect login or password';
+            return 'Incorrect login or password!';
         }
     }
 }
