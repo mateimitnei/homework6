@@ -17,11 +17,9 @@
     <h5 class="mr-md-auto font-weight-normal">JS</h5>
     <div id="top-buttons" class="d-flex flex-column flex-md-row align-items-center"
          style="visibility: hidden">
-        <a class="btn btn-outline-primary mr-3" id="logout" href="#" style="transition: 0s !important;">Logout</a>
-        <nav class="p-2 my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="#">Gallery</a>
-            <a class="p-2 text-dark" href="#">User Info</a>
-        </nav>
+        <a id="logout" class="btn btn-outline-primary mr-3" href="#" style="transition: 0s !important;">Logout</a>
+        <a id="gallery-button" class="btn mr-3" href="#">Gallery</a>
+        <a id="user-button" class="btn mr-3" href="#">User Info</a>
     </div>
 </div>
 
@@ -47,14 +45,15 @@
     </form>
 </main>
 
+<main id="user-page" class="text-center" style="display: none"></main>
 
 <main role="main" id="gallery-page" style="display: none">
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading">Car gallery</h1>
             <p class="lead text-muted">Some description </p>
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row justify-content-center">
+                <div class="mr-4">
 
                     <div class="btn-group" id="dropdown-name">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -68,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div>
                     <div class="btn-group" id="dropdown-date">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -87,8 +86,12 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="album bg-light" style="padding-bottom: 100px">
         <div class="container">
+            <div class="text-center mb-5">
+                <a href="#" id="next-page" class="btn btn-primary my-2">Add image</a>
+            </div>
+
             <div class="row" id="gallery">
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
@@ -191,9 +194,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <a href="#" id="next-page" class="btn btn-primary my-2">Add image</a>
-            </div>
+
 
         </div>
     </div>
@@ -209,5 +210,13 @@
 <script type="module" src=js/login.js></script>
 <script type="module" src=js/gallery.js></script>
 <script type="module" src=js/validator.js></script>
+
 </body>
+
+<style>
+    .btn-primary:focus {
+        color: #fff !important;
+    }
+</style>
+
 </html>

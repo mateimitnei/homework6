@@ -9,4 +9,4 @@ let galleryManager = new ExtendedGallery();
 
 let loginForm = new LoginForm(validatorModule, galleryModule);
 
-document.addEventListener('DOMContentLoaded', () => loginForm.init());
+document.addEventListener('DOMContentLoaded', () => loginForm.pageReload());
