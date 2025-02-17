@@ -1,18 +1,20 @@
 
 class BaseGallery {
 
-	initComponent(){
-		// code
+	init() {
+
 	}
 
-	initListeners (){
-		// code
+	initListeners () {
+
 	}
 }
 
 class ExtendedGallery extends BaseGallery {
 
-	addImage(){
-		// new method that is not in the parent
+	addImage() {
+
 	}
 }
+
+export default BaseGallery;

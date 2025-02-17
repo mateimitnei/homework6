@@ -1,20 +1,26 @@
 
 class Validator {
     constructor() {
-        this.email = "admin";
-        this.password = "12345678";
+        this.email = "a@b.c";
+        this.password = "1";
     }
 
     check(inputEmail, inputPass) {
         if (!inputEmail || !inputPass) {
-            return false;
+            return 'Form is filled out incorrectly';
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(inputEmail)) {
-            return false;
+            return 'Invalid email format';
         }
 
-        return this.email === inputEmail && this.password === inputPass;
+        if (this.email === inputEmail && this.password === inputPass) {
+            return true;
+        } else {
+            return 'Incorrect login or password';
+        }
     }
 }
+
+export default Validator;
