@@ -1,5 +1,5 @@
-
 class BaseGallery {
+
 	constructor() {
 		this.gallery = document.querySelector('#gallery-page');
 	}

@@ -1,5 +1,5 @@
-
 class Validator {
+
     constructor() {
         this.email = "admin@b.c";
         this.password = "123";

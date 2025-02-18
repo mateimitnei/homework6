@@ -1,8 +1,13 @@
-
 class LoginForm {
+
 	constructor(validatorModule, galleryModule) {
 		this.validator = validatorModule;
 		this.gallery = galleryModule;
+
+		if (!sessionStorage.getItem('loggedIn')) {
+			sessionStorage.setItem('loggedIn', 'false');
+		}
+
 		this.form = document.querySelector('#login-form');
 		this.submitButton = this.form.querySelector('button[type="submit"]');
 		this.alert = document.querySelector('.alert-danger');
@@ -12,11 +17,10 @@ class LoginForm {
 		this.topButtons = document.querySelector('#top-buttons');
 		this.userPage = document.querySelector('#user-page');
 		this.galleryPage = document.querySelector('#gallery-page');
+	}
 
-		if (!sessionStorage.getItem('loggedIn')) {
-			sessionStorage.setItem('loggedIn', 'false');
-		}
-
+	initListeners() {
+		document.addEventListener('DOMContentLoaded', () => this.pageReload());
 		this.submitButton.addEventListener('click', (event) => this.validateForm(event));
 		this.logoutButton.addEventListener('click', () => this.logout());
 		this.galleryButton.addEventListener('click', () => this.showGallery());
@@ -53,6 +57,17 @@ class LoginForm {
 		this.alert.style.visibility = 'visible';
 	}
 
+	logout() {
+		sessionStorage.setItem('loggedIn', 'false');
+		this.topButtons.style.visibility = 'hidden';
+		this.form.style.display = 'block';
+
+		this.gallery.hide();
+		this.userPage.style.display = 'none';
+
+		document.getElementById('inputPassword').value = '';
+	}
+
 	showGallery() {
 		this.alert.style.visibility = 'hidden';
 		this.form.style.display = 'none';
@@ -70,7 +85,7 @@ class LoginForm {
 
 		this.userPage.innerHTML = `
             <div class="container border rounded-3 box-shadow"
-                    style="width: fit-content; padding: 50px 75px; font-size: 18px; margin-top: 80px;">
+                    style="width: fit-content; padding: 50px 75px; margin-top: 120px;">
                 <h1 class="mb-3">Welcome, ${email.split('@')[0]}!</h1>
                 <p class="mb-5">This is your account data:</p>
                 <p><b>Email:</b> ${email}</p>
@@ -93,19 +108,6 @@ class LoginForm {
 				revealButton.textContent = 'Show';
 			}
 		});
-	}
-
-	logout() {
-		sessionStorage.setItem('loggedIn', 'false');
-		this.topButtons.style.visibility = 'hidden';
-		this.form.style.display = 'block';
-
-		this.gallery.hide();
-		this.userPage.style.display = 'none';
-
-		document.getElementById('inputEmail').value = '';
-		document.getElementById('inputPassword').value = '';
-
 	}
 }
 
