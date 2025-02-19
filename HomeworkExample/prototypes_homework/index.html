@@ -14,9 +14,8 @@
 
 <body>
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="mr-md-auto font-weight-normal">JS</h5>
-    <div id="top-buttons" class="d-flex flex-column flex-md-row align-items-center"
-         style="visibility: hidden">
+    <img class="mr-md-auto mt-1" src="images/cargram.png" alt="car" height="40">
+    <div id="top-buttons" class="d-flex flex-column flex-md-row align-items-center" style="visibility: hidden">
         <a id="logout" class="btn btn-outline-primary mr-3" href="#" style="transition: 0s !important;">Logout</a>
         <a id="gallery-button" class="btn mr-3" href="#" style="transition: 0s !important;">Gallery</a>
         <a id="user-button" class="btn mr-3" href="#" style="transition: 0s !important;">User Info</a>
@@ -50,152 +49,37 @@
 <main role="main" id="gallery-page" style="display: none">
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Car gallery</h1>
-            <p class="lead text-muted">Some description </p>
-            <div class="row justify-content-center">
-                <div class="mr-4">
 
-                    <div class="btn-group" id="dropdown-name">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Filter by name
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Sort: A - Z</a>
-                            <a class="dropdown-item" href="#">Sort: Z - A</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="btn-group" id="dropdown-date">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Filter by date
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" date-type="new" href="#">New first</a>
-                            <a class="dropdown-item" date-type="old" href="#">Old First</a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
+            <h1 class="jumbotron-heading">Your car gallery</h1>
+            <p class="lead text-muted">Only photos of cars here</p>
         </div>
     </section>
 
     <div class="album bg-light" style="padding-bottom: 100px">
-        <div class="container">
-            <div class="text-center mb-5">
-                <a href="#" id="next-page" class="btn btn-primary my-2">Add image</a>
-            </div>
+        <div id="gallery-and-buttons" class="container">
 
-            <div class="row" id="gallery">
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="CHEVROLET" src="http://desktopwallpapers.org.ua/mini/201507/40069.jpg"
-                             data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-outline-secondary">Edit</button>
-                                </div>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <small class="text-muted">25 Jan 2015</small>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row mb-4" style="padding: 0 15px 0 15px">
+                <div class="mr-auto">
+                    <select class="rounded mr-3 ml-1" id="sort-name">
+                        <option selected disabled hidden>Filter by name</option>
+                        <option value="a-to-z">Sort: A - Z</option>
+                        <option value="z-to-a">Sort: Z - A</option>
+                    </select>
+
+                    <select class="rounded" id="sort-date">
+                        <option selected disabled hidden>Filter by date</option>
+                        <option value="newest">New first</option>
+                        <option value="oldest">Old First</option>
+                    </select>
                 </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="DEWOO" src="http://desktopwallpapers.org.ua/mini/201507/40068.jpg"
-                             data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-outline-secondary">Edit</button>
-                                </div>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <small class="text-muted">13 Jan 2015</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="FOLKSWAGEN" src="http://desktopwallpapers.org.ua/mini/201507/40067.jpg"
-                             data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-outline-secondary">Edit</button>
-                                </div>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <small class="text-muted">12 Mar 2015</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="FERRARI" src="http://desktopwallpapers.org.ua/mini/201507/40057.jpg"
-                             data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-outline-secondary">Edit</button>
-                                </div>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <small class="text-muted">04 Apr 2015</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                             alt="BMW" src="http://desktopwallpapers.org.ua/mini/201507/40066.jpg"
-                             data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                        <div class="card-body">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-outline-secondary">Edit</button>
-                                </div>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                                <small class="text-muted">07 Jun 2014</small>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="text-center mr-1" style="margin-top: 20px">
+                    <a href="#" id="add-img" class="btn btn-primary my-2" data-toggle="tooltip"
+                       data-placement="top" title="A random car photo will be added">Add Image</a>
                 </div>
             </div>
 
-
+            <div class="row" id="gallery"></div>
         </div>
     </div>
 </main>
@@ -212,11 +96,4 @@
 <script type="module" src=js/validator.js></script>
 
 </body>
-
-<style>
-    .btn-primary:focus {
-        color: #fff !important;
-    }
-</style>
-
 </html>

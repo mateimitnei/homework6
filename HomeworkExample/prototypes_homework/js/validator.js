@@ -1,8 +1,8 @@
 class Validator {
 
     constructor() {
-        this.email = "admin@b.c";
-        this.password = "123";
+        this.email = "a@a.a";
+        this.password = "1";
     }
 
     check(inputEmail, inputPass) {

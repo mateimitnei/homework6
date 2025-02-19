@@ -2,9 +2,38 @@
   --jumbotron-padding-y: 3rem;
 }
 
+.btn-primary:focus {
+  color: #fff !important;
+}
+.card-body {
+  padding: 1.25rem;
+}
+
+select{
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #515151;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.83);
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.45),
+  inset 0 2px 5px rgba(255, 255, 255, 0.45);
+  border: 1px solid #cfcfcf;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+#gallery-and-buttons {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+  box-shadow: -2px -2px 7px 0px rgba(0, 0, 0, 0.07);
+}
+
 .jumbotron {
   padding-top: var(--jumbotron-padding-y);
-  padding-bottom: var(--jumbotron-padding-y);
+  padding-bottom: 2rem;
   margin-bottom: 0;
   background-color: #fff;
 }
@@ -24,9 +53,7 @@
   font-weight: 300;
 }
 
-.jumbotron .container {
-  max-width: 40rem;
-}
+
 
 footer {
   padding-top: 3rem;

@@ -2,11 +2,7 @@ class LoginForm {
 
 	constructor(validatorModule, galleryModule) {
 		this.validator = validatorModule;
-		this.gallery = galleryModule;
-
-		if (!sessionStorage.getItem('loggedIn')) {
-			sessionStorage.setItem('loggedIn', 'false');
-		}
+  		this.galleryPage = galleryModule;
 
 		this.form = document.querySelector('#login-form');
 		this.submitButton = this.form.querySelector('button[type="submit"]');
@@ -16,25 +12,25 @@ class LoginForm {
 		this.galleryButton = document.querySelector('#gallery-button');
 		this.topButtons = document.querySelector('#top-buttons');
 		this.userPage = document.querySelector('#user-page');
-		this.galleryPage = document.querySelector('#gallery-page');
 	}
 
-	initListeners() {
-		document.addEventListener('DOMContentLoaded', () => this.pageReload());
-		this.submitButton.addEventListener('click', (event) => this.validateForm(event));
-		this.logoutButton.addEventListener('click', () => this.logout());
-		this.galleryButton.addEventListener('click', () => this.showGallery());
-		this.userButton.addEventListener('click',
-			() => this.showUserInfo(this.validator.email, this.validator.password));
-	}
-
-	pageReload() {
+	init() {
 		if (sessionStorage.getItem('loggedIn') === 'true') {
 			this.showGallery();
 		}
 		else {
 			this.form.style.display = 'block';
 		}
+
+		this.initListeners();
+	}
+
+	initListeners() {
+		this.submitButton.addEventListener('click', (event) => this.validateForm(event));
+		this.logoutButton.addEventListener('click', () => this.logout());
+		this.galleryButton.addEventListener('click', () => this.showGallery());
+		this.userButton.addEventListener('click',
+			() => this.showUserInfo(this.validator.email, this.validator.password));
 	}
 
 	validateForm(event) {
@@ -62,7 +58,7 @@ class LoginForm {
 		this.topButtons.style.visibility = 'hidden';
 		this.form.style.display = 'block';
 
-		this.gallery.hide();
+		this.galleryPage.hide();
 		this.userPage.style.display = 'none';
 
 		document.getElementById('inputPassword').value = '';
@@ -75,11 +71,12 @@ class LoginForm {
 		this.userPage.style.display = 'none';
 		this.userButton.classList.remove('btn-primary');
 		this.galleryButton.classList.add('btn-primary');
-		this.gallery.init();
+
+		this.galleryPage.init();
 	}
 
 	showUserInfo(email, password) {
-		this.gallery.hide();
+		this.galleryPage.hide();
 		this.galleryButton.classList.remove('btn-primary');
 		this.userButton.classList.add('btn-primary');
 
@@ -87,7 +84,7 @@ class LoginForm {
             <div class="container border rounded-3 box-shadow"
                     style="width: fit-content; padding: 50px 75px; margin-top: 120px;">
                 <h1 class="mb-3">Welcome, ${email.split('@')[0]}!</h1>
-                <p class="mb-5">This is your account data:</p>
+                <p class="mb-5">This is your Cargram account data:</p>
                 <p><b>Email:</b> ${email}</p>
                 <p><b>Password:</b>
                     <span id="passwordDisplay">${'*'.repeat(password.length)}</span>
